@@ -23,11 +23,13 @@
     include: set_facts_.yaml
 
   - name: Install needed packages
+    become: yes
     package:
       name: "{{ packages }}"
       state: present
 
   - name: Install packages for DHCP/PXE install
+    become: yes
     package:
       name: "{{ dhcppkgs }}"
       state: present
